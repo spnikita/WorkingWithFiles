@@ -18,11 +18,11 @@ namespace Task1
 
                 Console.WriteLine("Выполняется очистка каталога от файлов и папок, которые не использовались более 30 минут.");
 
-                var rootDirectory = new DirectoryInfo(directoryPath);
+                var di = new DirectoryInfo(directoryPath);
 
-                DeleteFiles(rootDirectory);
+                DeleteFiles(di);
 
-                DeleteFolders(rootDirectory);
+                DeleteFolders(di);
             }
             catch (Exception ex)
             {
