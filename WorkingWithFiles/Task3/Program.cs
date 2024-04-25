@@ -7,30 +7,42 @@ namespace Task3
     {
         static void Main(string[] args)
         {
-            Console.Write("Введите полное имя каталога, который необходимо очистить: ");
+            try
+            {
+                Console.Write("Введите полное имя каталога, который необходимо очистить: ");
 
-            var directoryPath = Console.ReadLine();
+                var directoryPath = Console.ReadLine();
 
-            if (!Directory.Exists(directoryPath))
-                throw new Exception("Указанная директория не существует.");
+                if (!Directory.Exists(directoryPath))
+                    throw new Exception("Указанная директория не существует.");
 
-            var di = new DirectoryInfo(directoryPath);
+                var di = new DirectoryInfo(directoryPath);
 
-            var sizeBeforeDeletion = CalculateFolderSize(di);
+                var sizeBeforeDeletion = CalculateFolderSize(di);
 
-            Console.WriteLine($"Исходный размер каталога/папки: {sizeBeforeDeletion} байт.");
+                Console.WriteLine($"Исходный размер каталога/папки: {sizeBeforeDeletion} байт.");
 
-            Console.WriteLine("Выполняется очистка каталога от файлов и папок, которые не использовались более 30 минут.");
+                Console.WriteLine("Выполняется очистка каталога от файлов и папок, которые не использовались более 30 минут.");
 
-            DeleteFiles(di);
+                DeleteFiles(di);
 
-            DeleteFolders(di);
+                DeleteFolders(di);
 
-            var sizeAfterDeletion = CalculateFolderSize(di);
+                var sizeAfterDeletion = CalculateFolderSize(di);
 
-            Console.WriteLine($"Освобождено: {sizeBeforeDeletion - sizeAfterDeletion} байт.");
+                Console.WriteLine($"Освобождено: {sizeBeforeDeletion - sizeAfterDeletion} байт.");
 
-            Console.WriteLine($"Текущий размер каталога/папки: {sizeAfterDeletion} байт.");
+                Console.WriteLine($"Текущий размер каталога/папки: {sizeAfterDeletion} байт.");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex);
+            }
+            finally
+            {
+                Console.WriteLine("Работа программы завершена");
+                Console.ReadKey();
+            }
         }
 
         /// <summary>

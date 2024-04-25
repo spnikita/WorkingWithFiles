@@ -22,7 +22,7 @@ namespace Task2
 
                 var size = CalculateFolderSize(di);
 
-                Console.WriteLine($"Размер каталога/папки: {size} байт.");
+                Console.WriteLine($"Размер каталога/папки: {size} байт.");                
             }
             catch (Exception ex)
             {
@@ -30,6 +30,7 @@ namespace Task2
             }
             finally
             {
+                Console.WriteLine("Работа программы завершена");
                 Console.ReadKey();
             }
         }

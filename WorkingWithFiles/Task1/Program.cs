@@ -30,6 +30,7 @@ namespace Task1
             }
             finally
             {
+                Console.WriteLine("Работа программы завершена");
                 Console.ReadKey();
             }                     
         }
