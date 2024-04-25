@@ -34,6 +34,11 @@ namespace Task2
             }
         }
 
+        /// <summary>
+        /// Посчитать размер каталога
+        /// </summary>
+        /// <param name="di">Каталог</param>
+        /// <returns>Размер каталога, байт</returns>
         private static long CalculateFolderSize(DirectoryInfo di)
         {
             long size = 0;
